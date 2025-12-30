@@ -3,79 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jason's Portfolio</title>
+  <title>Jason Zheng | Portfolio</title>
+
+  <!-- Optional: clean sans font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="./resources/css/homepage.css" />
 </head>
 <body>
-  <div class="container">
-    <aside class="sidebar">
-      <h1 class="logo">Jason Zheng</h1>
-      <nav>
-        <ul>
-          <li><a href="#welcome">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+  <div class="page">
+
+    <!-- Top Nav -->
+    <header class="top-nav">
+      <div class="logo">JZ</div>
+      <nav class="nav-links">
+        <ol>
+          <li><a href="#hero"><span>01.</span> About</a></li>
+          <li><a href="#projects"><span>02.</span> Work</a></li>
+          <li><a href="#contact"><span>03.</span> Contact</a></li>
+        </ol>
       </nav>
-    </aside>
+      <a href="./resources/images/Jason_Zheng_Resume.pdf" class="nav-resume-btn" target="_blank" rel="noopener">
+        Resume
+      </a>
+    </header>
 
-    <main class="main-content">
-      <section id="welcome" class="section hero">
-        <h2>Hi, I'm an aspiring Software Engineer/Cloud Developer</h2>
-        <p>I currently attend Rensselaer Polytechnic Institute and study in Computer Science / Information Technologies & Web Science.
-            Welcome to my website! Here you will see my past, current, and possibly 
+    <!-- Left social column -->
+    <div class="side-left">
+      <ul>
+        <li><a href="#" aria-label="GitHub"><img src="./resources/images/github.svg" alt="GitHub icon" style="width: 30px"></a></li>
+        <li><a href="#" aria-label="LinkedIn"><img src="./resources/images/LinkedIn_icon.svg.webp" style="width: 25px; margin-left: 3px;"></a></li>
+        <li><a href="#" aria-label="Email"><img src="./resources/images/mail-icon.png" style="width: 30px;"></a></li>
+        <li><a href="#" aria-label="X"><img src="./resources/images/X_icon.svg.png" style="width: 30px;"></a></li>
+      </ul>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+
+      <!-- Hero section -->
+      <section id="hero" class="hero">
+        <p class="hero-kicker">Hi, my name is</p>
+        <h1 class="hero-title">Jason Zheng.</h1>
+        <h2 class="hero-subtitle">I build full stack applications.</h2>
+
+        <p class="hero-description">
+          I’m a student at Rensselaer Polytechnic Institute (RPI) studying Computer Science and Information Technologies &amp; Web Science. 
+          I enjoy designing and building practical, user-focused tools that make data and technology easier to use. I’m especially motivated 
+          by projects that solve real problems and create meaningful impact in everyday life.
         </p>
+
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">Check out my work</a>
+        </div>
       </section>
 
+      <!-- Projects section -->
       <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="project-gallery">
-          <div class="project-card">Project One</div>
-          <div class="project-card">Project Two</div>
-          <div class="project-card">Project Three</div>
-          <div class="project-card">Project Four</div>
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+          <!-- Add project cards here -->
+          <article class="project-card">
+            <h3>Project Name</h3>
+            <p>One or two lines describing what this project does.</p>
+            <a href="#" class="project-link">View project →</a>
+          </article>
         </div>
       </section>
 
-      <section id="about" class="section">
-        <h2>About Me</h2>
+      <!--Course Work-->
+      <!--Other skills?-->
+
+      <!-- Contact section -->
+      <section id="contact" class="section section-contact">
+        <h2 class="section-title">Get In Touch</h2>
         <p>
-          I'm a student developer passionate about building user-friendly and
-          visually appealing digital experiences. This site is a glimpse of my journey.
+          <!-- Customize this blurb -->
+          I’m always open to new opportunities, collaborations, or just chatting about projects.
         </p>
+        <a href="mailto:jzheng2413@gmail.com" class="btn-primary">
+          Say hello
+        </a>
       </section>
 
-      <section id="skills" class="section">
-        <h2>Skills</h2>
-        <ul class="skills-list">
-          <li>HTML5</li>
-          <li>CSS3</li>
-          <li>JavaScript</li>
-          <li>Tailwind CSS</li>
-          <li>Git</li>
-          <li>C++</li>
-          <li>Python</li>
-          <li>Object-Orientated Programming</li>
-        </ul>
-      </section>
-
-      <section id="contact" class="section contact">
-        <h2>Contact Me</h2>
-        <form>
-          <input type="text" placeholder="Name" required />
-          <input type="email" placeholder="Email" required />
-          <textarea placeholder="Message" rows="4" required></textarea>
-          <button type="submit">Send</button>
-        </form>
-        <div class="socials">
-          <a href="#">Twitter</a>
-          <a href="#">GitHub</a>
-          <a href="#">LinkedIn</a>
-        </div>
-      </section>
     </main>
   </div>
+  <script src="./resources/scripts/projectData.js"></script>
+  <script src="./resources/scripts/homepage.js"></script>
 </body>
 </html>
