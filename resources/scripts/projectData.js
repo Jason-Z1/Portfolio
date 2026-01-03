@@ -5,6 +5,9 @@ const projectData = {
             "name": "Go Gaia",
             "description": "Hackathon project from NJIT GirlsHack 2025. This project won the Avanade best use of Microsoft Azure AI.",
             "category": "AI Modeling",
+            "technologies": "",
+            "github": "",
+            "highlights": [""],
             "status": "In Progress",
             "feature": true,
             "link": "gogaia.tech",
@@ -27,6 +30,9 @@ const projectData = {
             <p>I integrated a custom trading environment into the existing FinRL pipeline and adapted environment variables/functions, and evaluated PPO agents under the new setup.</p>
             `,
             "category": "Reinforcement Learning",
+            "technologies": ["Python", "StableBaselines3", "PPO", "FinRL"],
+            "github": "",
+            "demo": "",
             "status": "Completed",
             "feature": true,
             "link": "https://github.com/Open-Finance-Lab/FinAI-Contest",
@@ -35,12 +41,40 @@ const projectData = {
         {
             "id": 3,
             "name": "DataPulse",
-            descriptionHtml: `....`,
+            "description": "A financial data search and visualization tool that lets users quickly explore large-scale stock market datasets without needing a database. It supports flexible time ranges, interactive charts and tables, and fast CSV export, making it easy for researchers to analyze trends across millions of rows of historical data.",
             "category": "Data Analysis",
+            "technologies": "",
+            "github": "",
+            "highlights": [""],
             "status": "In Progress",
             "feature": true,
             "link": "https://github.com/Jason-Z1/DataPulse",
             "date": "2025-12-02"
+        },
+        {
+            "id": 4,
+            "name": "Scrappy",
+            "description": "A Social Media application desgined to help people creatively archive and share memories. Inspired by Pinterest and Instagram, it focuses on the expressive posts and simple interactions. Each post is separated into 'scrapbooks' which are essentially folders of posts and memories. This was a beginner-friendly project that gave me hands-on experience building a full stack web application from scratch.",
+            "category": "Full Stack Web App",
+            "technologies": "",
+            "github": "",
+            "highlights": [""],
+            "status": "Completed",
+            "feature": true,
+            "link": "https://github.com/RPI-ITWS/ITWS1100-S25-team05",
+            "date": "2025-04-25"
+        },
+        {
+            "id": 999,
+            "name": "Template",
+            "description": "",
+            "category": "",
+            "technologies": "",
+            "github": "",
+            "highlights": [""],
+            "status": "In Progress",
+            "feature": false,
+            "date": "0000-01-11"
         }
     ]
 };

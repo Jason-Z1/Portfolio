@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jason Zheng | Portfolio</title>
 
-  <!-- Optional: clean sans font -->
+  <!-- clean sans font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -83,9 +83,12 @@
           <!-- Customize this blurb -->
           I’m always open to new opportunities, collaborations, or just chatting about projects.
         </p>
-        <a href="mailto:jzheng2413@gmail.com" class="btn-primary">
-          Say hello
-        </a>
+        <form action="https://formspree.io/f/xaqnbjrz" method="POST" class="contact-form">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Message" rows="5" required></textarea>
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
       </section>
 
     </main>
