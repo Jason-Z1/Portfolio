@@ -74,6 +74,7 @@ const projectData = {
             "highlights": [""],
             "status": "In Progress",
             "feature": true,
+            "link": "https://github.com/MrMustacheMan138/ITWS-4500-2H/tree/main",
             "date": "2026-01-16"
         },
         {
@@ -86,6 +87,7 @@ const projectData = {
             "highlights": [""],
             "status": "In Progress",
             "feature": true,
+            "link": "https://github.com/rpi-mercerxlab/BeyondGPA",
             "date": "2026-01-12"
         },
         {
@@ -98,6 +100,7 @@ const projectData = {
             "highlights": [""],
             "status": "In Progress",
             "feature": false,
+            "link": "",
             "date": "0000-01-11"
         }
     ]
