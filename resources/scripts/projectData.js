@@ -65,6 +65,30 @@ const projectData = {
             "date": "2025-04-25"
         },
         {
+            "id": 5,
+            "name": "SyllabusAI",
+            "description": "An AI-Powered tool for comparing and analyzing the differences between cirriculums at different institutions. Just import the sources that you are comparing and it will generate you a side-by-side comparison as to how each program differs.",
+            "category": "Full Stack",
+            "technologies": ["NextJS", "RAG", "FastAPI", "PostgreSQL", "NextAuth"],
+            "github": "https://github.com/MrMustacheMan138/ITWS-4500-2H/tree/main",
+            "highlights": [""],
+            "status": "In Progress",
+            "feature": true,
+            "date": "2026-01-16"
+        },
+        {
+            "id": 6,
+            "name": "BeyondGPA",
+            "description": "Connects students with professors for undergraduate research projects and internships by showcasing student skills through personal and club projects. The platform allows students to upload project details and search for URPs that match their skills. It utilizes technologies like NextJS, Prisma, and PostgreSQL for its frontend and backend development.",
+            "category": "Full Stack, Backend",
+            "technologies": ["Prisma", "NextJS", "PostgreSQL", "MinIo", "NextAuth", "Tailwind"],
+            "github": "https://github.com/rpi-mercerxlab/BeyondGPA",
+            "highlights": [""],
+            "status": "In Progress",
+            "feature": true,
+            "date": "2026-01-12"
+        },
+        {
             "id": 999,
             "name": "Template",
             "description": "",
