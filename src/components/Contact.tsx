@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import { FiSend, FiLoader } from 'react-icons/fi'
@@ -9,12 +10,17 @@ interface FormData {
   message: string
 }
 
-// Strict format check: local@domain.tld — rejects bare domains and missing TLDs
 const EMAIL_PATTERN = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/
 
-async function domainHasMxRecords(email: string): Promise<true | string> {
+// Module-level cache so repeated submits don't re-hit DNS
+const mxCache = new Map<string, true | string>()
+
+async function validateEmailDomain(email: string): Promise<true | string> {
   const domain = email.split('@')[1]
   if (!domain) return 'Invalid email address'
+
+  if (mxCache.has(domain)) return mxCache.get(domain)!
+
   try {
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), 4000)
@@ -23,30 +29,47 @@ async function domainHasMxRecords(email: string): Promise<true | string> {
       { signal: controller.signal },
     )
     clearTimeout(timeout)
-    if (!res.ok) return true // fail open on HTTP error
-    const data = await res.json() as { Answer?: unknown[] }
-    if (!data.Answer?.length) return `"${domain}" cannot receive email`
+    if (!res.ok) return true
+    const data = (await res.json()) as { Answer?: unknown[] }
+    const result: true | string = data.Answer?.length
+      ? true
+      : `"${domain}" cannot receive email`
+    mxCache.set(domain, result)
+    return result
   } catch {
-    return true // fail open on network/timeout error
+    return true // fail open on timeout / network error
   }
-  return true
 }
 
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
+
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful, isValidating },
+    formState: { errors, isSubmitting, isValidating },
   } = useForm<FormData>({ mode: 'onBlur' })
 
   const onSubmit = async (data: FormData) => {
-    const res = await fetch('https://formspree.io/f/xaqnbjrz', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(data),
-    })
-    if (res.ok) reset()
+    setSubmitError(null)
+    try {
+      const res = await fetch('https://formspree.io/f/xaqnbjrz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      })
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({})) as { error?: string }
+        setSubmitError(body.error ?? `Submission failed (${res.status}). Please try again.`)
+        return
+      }
+      reset()
+      setSubmitted(true)
+    } catch {
+      setSubmitError('Network error — please check your connection and try again.')
+    }
   }
 
   return (
@@ -102,9 +125,15 @@ export default function Contact() {
             className="space-y-4"
             noValidate
           >
-            {isSubmitSuccessful && (
+            {submitted && (
               <div className="bg-teal/10 border border-teal/20 rounded-lg px-4 py-3 text-teal font-mono text-sm">
                 Message sent! I'll get back to you soon.
+              </div>
+            )}
+
+            {submitError && (
+              <div className="bg-red-400/10 border border-red-400/20 rounded-lg px-4 py-3 text-red-400 font-mono text-sm">
+                {submitError}
               </div>
             )}
 
@@ -128,11 +157,8 @@ export default function Contact() {
                 <input
                   {...register('email', {
                     required: 'Email is required',
-                    pattern: {
-                      value: EMAIL_PATTERN,
-                      message: 'Enter a valid email address',
-                    },
-                    validate: domainHasMxRecords,
+                    pattern: { value: EMAIL_PATTERN, message: 'Enter a valid email address' },
+                    validate: validateEmailDomain,
                   })}
                   type="email"
                   placeholder="Email"
@@ -173,7 +199,10 @@ export default function Contact() {
               className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
-                <span className="font-mono text-sm">Sending...</span>
+                <>
+                  <FiLoader size={14} className="animate-spin" />
+                  <span className="font-mono text-sm">Sending...</span>
+                </>
               ) : (
                 <>
                   <FiSend size={14} />
