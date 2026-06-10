@@ -59,17 +59,17 @@ export default function Hero() {
           </span>
         </motion.h2>
 
-        <motion.p
-          variants={fadeInUp}
-          className="text-slate text-base sm:text-lg leading-relaxed max-w-xl mb-10"
-        >
-          I'm a student at{' '}
-          <span className="text-slate-lighter">Rensselaer Polytechnic Institute (RPI)</span>{' '}
-          studying Computer Science and Information Technologies &amp; Web Science. I enjoy
-          designing and building practical, user-focused tools that make data and technology
-          easier to use — especially projects that solve real problems and create meaningful
-          impact.
-        </motion.p>
+        <motion.div variants={fadeInUp} className="max-w-xl mb-10 space-y-5">
+          <p className="font-mono text-teal text-sm sm:text-base italic border-l-2 border-teal/40 pl-4">
+            "Working code is easy. Good infrastructure is rare."
+          </p>
+          <p className="text-slate text-base sm:text-lg leading-relaxed">
+            I'm studying Computer Science and Web Science at RPI.
+            I build across the stack and think in systems. I focus
+            on the infrastructure others overlook: data pipelines,
+            real-time APIs, hardware integration, optimization.
+          </p>
+        </motion.div>
 
         <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-4">
           <a href="#projects" className="btn-primary text-sm">
