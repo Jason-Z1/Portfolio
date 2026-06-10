@@ -35,7 +35,7 @@ export default function Contact() {
         viewport={{ once: true, margin: '-80px' }}
       >
         <motion.h2 variants={fadeInUp} className="section-heading">
-          <span className="section-number">04.</span> Get In Touch
+          <span className="section-number">05.</span> Get In Touch
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">

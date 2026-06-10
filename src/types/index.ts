@@ -17,4 +17,13 @@ export interface SkillCategory {
   items: string[]
 }
 
-export type NavSection = 'about' | 'skills' | 'projects' | 'contact'
+export interface Experience {
+  id: number
+  company: string
+  role: string
+  period?: string
+  technologies: string[]
+  bullets: string[]
+}
+
+export type NavSection = 'about' | 'skills' | 'experience' | 'projects' | 'contact'

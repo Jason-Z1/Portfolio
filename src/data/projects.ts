@@ -1,4 +1,4 @@
-import type { Project, SkillCategory } from '../types'
+import type { Project, SkillCategory, Experience } from '../types'
 
 export const projects: Project[] = [
   {
@@ -42,6 +42,18 @@ export const projects: Project[] = [
     date: '2025-12-02',
   },
   {
+    id: 5,
+    name: 'SyllabusAI',
+    description:
+      'Full-stack RAG application that parses unformatted syllabus data into normalized, queryable tables via REST endpoints. Includes a token-based rate limiting system with IP fallback to prevent abuse while maintaining UX for authenticated users.',
+    category: 'Full Stack Web App',
+    technologies: ['FastAPI', 'Next.js', 'NextAuth', 'Groq', 'Gemini', 'RAG'],
+    status: 'Completed',
+    featured: true,
+    link: 'https://github.com/Jason-Z1/SyllabusAI',
+    date: '2026-01-01',
+  },
+  {
     id: 4,
     name: 'Scrappy',
     description:
@@ -52,6 +64,20 @@ export const projects: Project[] = [
     featured: true,
     link: 'https://github.com/RPI-ITWS/ITWS1100-S25-team05',
     date: '2025-04-25',
+  },
+]
+
+export const experience: Experience[] = [
+  {
+    id: 1,
+    company: 'AgileRadioCom',
+    role: 'Software Development Intern',
+    technologies: ['Python', 'Flask', 'Socket.IO', 'SSH/SFTP', 'Raspberry Pi', 'FPGA', 'RTL-SDR'],
+    bullets: [
+      'Built a Python Flask web server with Socket.IO to orchestrate 5+ networked devices, managing complex workflows between Raspberry Pi, FPGA, and RTL-SDR hardware.',
+      'Implemented SSH/SCP/SFTP automation layer with robust error handling, status monitoring, and health checks for multi-device coordination.',
+      'Designed a bidirectional real-time communication system managing state across distributed devices to prevent interference and ensure message ordering.',
+    ],
   },
 ]
 

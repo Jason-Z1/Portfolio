@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useScrolled } from '../hooks/useScrolled'
 import { useActiveSection } from '../hooks/useActiveSection'
 
-const SECTIONS = ['about', 'skills', 'projects', 'contact']
-const NAV_LABELS = ['About', 'Skills', 'Work', 'Contact']
+const SECTIONS = ['about', 'skills', 'experience', 'projects', 'contact']
+const NAV_LABELS = ['About', 'Skills', 'Experience', 'Work', 'Contact']
 
 export default function Navbar() {
   const scrolled = useScrolled(50)

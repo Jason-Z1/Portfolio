@@ -23,7 +23,7 @@ export default function Projects() {
         viewport={{ once: true, margin: '-80px' }}
       >
         <motion.h2 variants={fadeInUp} className="section-heading">
-          <span className="section-number">03.</span> Work
+          <span className="section-number">04.</span> Work
         </motion.h2>
 
         <motion.div variants={fadeInUp} className="flex flex-wrap gap-2 mb-10">
