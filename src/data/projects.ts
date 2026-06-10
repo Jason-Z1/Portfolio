@@ -85,22 +85,26 @@ export const experience: Experience[] = [
 export const skills: SkillCategory[] = [
   {
     category: 'Languages',
-    items: ['Python', 'JavaScript', 'TypeScript', 'Java', 'C++', 'SQL'],
+    items: ['Python', 'Java', 'JavaScript', 'SQL', 'C/C++', 'HTML/CSS', 'PHP', 'R'],
+  },
+  {
+    category: 'Backend Frameworks',
+    items: ['Flask', 'FastAPI', 'Node.js', 'REST APIs', 'WebSockets', 'Prisma ORM'],
   },
   {
     category: 'Frontend',
-    items: ['React', 'HTML', 'CSS', 'Tailwind CSS'],
+    items: ['React', 'Next.js', 'Tailwind CSS', 'Recharts', 'jQuery', 'Responsive Design'],
   },
   {
-    category: 'Backend & Data',
-    items: ['Node.js', 'Express', 'FastAPI', 'PostgreSQL', 'MongoDB', 'REST APIs'],
+    category: 'Data & ML',
+    items: ['Pandas', 'NumPy', 'Azure Custom Vision'],
   },
   {
-    category: 'AI & ML',
-    items: ['PyTorch', 'Pandas', 'NumPy', 'Scikit-learn', 'Reinforcement Learning', 'Azure AI'],
+    category: 'DevOps & Tools',
+    items: ['Docker', 'Git/GitHub', 'Postman', 'PostgreSQL', 'MySQL', 'NextAuth', 'VS Code'],
   },
   {
-    category: 'Tools',
-    items: ['Git', 'Docker', 'Azure', 'Linux', 'Vite', 'VS Code'],
+    category: 'Systems & Networking',
+    items: ['SSH/SFTP/SCP Automation', 'Socket.IO', 'Multi-Device Orchestration', 'System Integration'],
   },
 ]
