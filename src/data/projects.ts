@@ -77,6 +77,7 @@ export const experience: Experience[] = [
       'Built a Python Flask web server with Socket.IO to orchestrate 5+ networked devices, managing complex workflows between Raspberry Pi, FPGA, and RTL-SDR hardware.',
       'Implemented SSH/SCP/SFTP automation layer with robust error handling, status monitoring, and health checks for multi-device coordination.',
       'Designed a bidirectional real-time communication system managing state across distributed devices to prevent interference and ensure message ordering.',
+      'Created responsive HTML / CSS / JavaScript web interface with WebSocket-driven real-time progress tracking, signal visualization, and live image display.',
     ],
   },
 ]
