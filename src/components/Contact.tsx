@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
-import { FiSend } from 'react-icons/fi'
+import { FiSend, FiLoader } from 'react-icons/fi'
 import { stagger, fadeInUp } from '../utils/animations'
 
 interface FormData {
@@ -9,13 +9,36 @@ interface FormData {
   message: string
 }
 
+// Strict format check: local@domain.tld — rejects bare domains and missing TLDs
+const EMAIL_PATTERN = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/
+
+async function domainHasMxRecords(email: string): Promise<true | string> {
+  const domain = email.split('@')[1]
+  if (!domain) return 'Invalid email address'
+  try {
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), 4000)
+    const res = await fetch(
+      `https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=MX`,
+      { signal: controller.signal },
+    )
+    clearTimeout(timeout)
+    if (!res.ok) return true // fail open on HTTP error
+    const data = await res.json() as { Answer?: unknown[] }
+    if (!data.Answer?.length) return `"${domain}" cannot receive email`
+  } catch {
+    return true // fail open on network/timeout error
+  }
+  return true
+}
+
 export default function Contact() {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
-  } = useForm<FormData>()
+    formState: { errors, isSubmitting, isSubmitSuccessful, isValidating },
+  } = useForm<FormData>({ mode: 'onBlur' })
 
   const onSubmit = async (data: FormData) => {
     const res = await fetch('https://formspree.io/f/xaqnbjrz', {
@@ -85,6 +108,7 @@ export default function Contact() {
               </div>
             )}
 
+            {/* Name */}
             <div>
               <input
                 {...register('name', { required: 'Name is required' })}
@@ -98,23 +122,37 @@ export default function Contact() {
               )}
             </div>
 
+            {/* Email */}
             <div>
-              <input
-                {...register('email', {
-                  required: 'Email is required',
-                  pattern: { value: /^\S+@\S+$/i, message: 'Invalid email address' },
-                })}
-                type="email"
-                placeholder="Email"
-                className={`w-full bg-navy-lighter border rounded-lg px-4 py-3 text-slate-lighter text-sm
-                           placeholder:text-slate/50 focus:outline-none focus:border-teal/50 transition-colors
-                           ${errors.email ? 'border-red-400/50' : 'border-navy-lighter hover:border-slate/30'}`}
-              />
+              <div className="relative">
+                <input
+                  {...register('email', {
+                    required: 'Email is required',
+                    pattern: {
+                      value: EMAIL_PATTERN,
+                      message: 'Enter a valid email address',
+                    },
+                    validate: domainHasMxRecords,
+                  })}
+                  type="email"
+                  placeholder="Email"
+                  className={`w-full bg-navy-lighter border rounded-lg px-4 py-3 text-slate-lighter text-sm
+                             placeholder:text-slate/50 focus:outline-none focus:border-teal/50 transition-colors
+                             ${errors.email ? 'border-red-400/50' : 'border-navy-lighter hover:border-slate/30'}`}
+                />
+                {isValidating && (
+                  <FiLoader
+                    size={14}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate animate-spin"
+                  />
+                )}
+              </div>
               {errors.email && (
                 <p className="font-mono text-xs text-red-400 mt-1">{errors.email.message}</p>
               )}
             </div>
 
+            {/* Message */}
             <div>
               <textarea
                 {...register('message', { required: 'Message is required' })}
@@ -131,7 +169,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={isSubmitting || isValidating}
               className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
