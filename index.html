@@ -1,99 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jason Zheng | Portfolio</title>
-
-  <!-- clean sans font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="./resources/css/homepage.css" />
-</head>
-<body>
-  <div class="page">
-
-    <!-- Top Nav -->
-    <header class="top-nav">
-      <div class="logo">JZ</div>
-      <nav class="nav-links">
-        <ol>
-          <li><a href="#hero"><span>01.</span> About</a></li>
-          <li><a href="#projects"><span>02.</span> Work</a></li>
-          <li><a href="#contact"><span>03.</span> Contact</a></li>
-        </ol>
-      </nav>
-      <a href="./resources/images/Jason_Zheng_Resume.pdf" class="nav-resume-btn" target="_blank" rel="noopener">
-        Resume
-      </a>
-    </header>
-
-    <!-- Left social column -->
-    <div class="side-left">
-      <ul>
-        <li><a href="https://github.com/Jason-Z1" aria-label="GitHub" target="_blank" rel="noopener"><img src="./resources/images/github.svg" alt="GitHub icon" style="width: 30px"></a></li>
-        <li><a href="https://www.linkedin.com/in/jason-zheng01/" aria-label="LinkedIn" target="_blank" rel="noopener"><img src="./resources/images/LinkedIn_icon.svg.webp" style="width: 25px; margin-left: 3px;"></a></li>
-        <li><a href="mailto:jzheng2413@gmail.com" aria-label="Email"><img src="./resources/images/mail-icon.png" style="width: 30px;"></a></li>
-        <li><a href="https://x.com/jasonZ_1" aria-label="X" target="_blank" rel="noopener"><img src="./resources/images/X_icon.svg.png" style="width: 30px;"></a></li>
-      </ul>
-    </div>
-
-    <!-- Main content -->
-    <main class="main">
-
-      <!-- Hero section -->
-      <section id="hero" class="hero">
-        <p class="hero-kicker">Hi, my name is</p>
-        <h1 class="hero-title">Jason Zheng.</h1>
-        <h2 class="hero-subtitle">I build full stack applications.</h2>
-
-        <p class="hero-description">
-          I’m a student at Rensselaer Polytechnic Institute (RPI) studying Computer Science and Information Technologies &amp; Web Science. 
-          I enjoy designing and building practical, user-focused tools that make data and technology easier to use. I’m especially motivated 
-          by projects that solve real problems and create meaningful impact in everyday life.
-        </p>
-
-        <div class="hero-cta">
-          <a href="#projects" class="btn-primary">Check out my work</a>
-        </div>
-      </section>
-
-      <!-- Projects section -->
-      <section id="projects" class="section">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-          <!-- Add project cards here -->
-          <article class="project-card">
-            <h3>Project Name</h3>
-            <p>One or two lines describing what this project does.</p>
-            <a href="#" class="project-link">View project →</a>
-          </article>
-        </div>
-      </section>
-
-      <!--Course Work-->
-      <!--Other skills?-->
-
-      <!-- Contact section -->
-      <section id="contact" class="section section-contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <p>
-          <!-- Customize this blurb -->
-          I’m always open to new opportunities, collaborations, or just chatting about projects.
-        </p>
-        <form action="https://formspree.io/f/xaqnbjrz" method="POST" class="contact-form">
-          <input type="text" name="name" placeholder="Name" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <textarea name="message" placeholder="Message" rows="5" required></textarea>
-          <button type="submit" class="btn-primary">Send Message</button>
-        </form>
-      </section>
-
-    </main>
-  </div>
-  <script src="./resources/scripts/projectData.js"></script>
-  <script src="./resources/scripts/homepage.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jason Zheng — CS student at RPI building full-stack applications, AI tools, and data systems." />
+    <title>Jason Zheng | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
