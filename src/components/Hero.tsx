@@ -7,7 +7,6 @@ const ROLES = [
   'full-stack applications.',
   'AI-powered tools.',
   'data pipelines.',
-  'things that matter.',
 ]
 
 export default function Hero() {
