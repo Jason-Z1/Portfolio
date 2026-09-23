@@ -80,6 +80,15 @@ export const experience: Experience[] = [
       'Created responsive HTML / CSS / JavaScript web interface with WebSocket-driven real-time progress tracking, signal visualization, and live image display.',
     ],
   },
+  {
+    id: 2,
+    company: 'NYSTEC',
+    role: 'IgniteU Fellow',
+    technologies: [],
+    bullets: [
+      ''
+    ]
+  },
 ]
 
 export const skills: SkillCategory[] = [
